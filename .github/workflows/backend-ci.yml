@@ -1,0 +1,35 @@
+name: Backend CI (Spring Boot)
+
+on:
+  push:
+    paths:
+      - "hrms-backend/**"
+  pull_request:
+    paths:
+      - "hrms-backend/**"
+
+jobs:
+  backend-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('hrms-backend/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build & Test
+        working-directory: hrms-backend
+        run: mvn clean test
