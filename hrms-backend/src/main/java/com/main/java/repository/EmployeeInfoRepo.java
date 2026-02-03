@@ -1,16 +1,13 @@
 package com.main.java.repository;
 
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.main.java.entity.Account;
+import com.main.java.entity.EmployeeInfo;
 
 @Repository
-public interface AccountRepo extends JpaRepository<Account, UUID>{
-	
-	Optional<Account> findByEmpId(UUID empId);
+public interface EmployeeInfoRepo extends JpaRepository<EmployeeInfo, UUID>{
 
 }

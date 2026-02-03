@@ -24,6 +24,13 @@ public class Account extends BaseEntity{
 	@Column(name = "account_id")
 	private UUID accountId;
 	
-	private String username;
+	@Column(name = "emp_id")
+	private UUID empId;
+	
+	private String password;
+	
+	private String role;
+	
+	private String status;
 
 }
