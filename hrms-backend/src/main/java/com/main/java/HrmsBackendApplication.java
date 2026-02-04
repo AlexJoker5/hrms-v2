@@ -1,18 +1,11 @@
 package com.main.java;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.main.java.entity.Account;
-import com.main.java.repository.AccountRepo;
-
 @SpringBootApplication
 public class HrmsBackendApplication implements CommandLineRunner {
-	
-	@Autowired
-	private AccountRepo accountRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(HrmsBackendApplication.class, args);
@@ -30,7 +23,7 @@ public class HrmsBackendApplication implements CommandLineRunner {
 //		System.out.println(accountRepo.findAll());
 //		
 //	}
-	
+//	
 	
 
 }
