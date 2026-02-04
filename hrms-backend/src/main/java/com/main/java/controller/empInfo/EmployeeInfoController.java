@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.main.java.exceptions.AlreadyExistsException;
 import com.main.java.repository.AccountRepo;
-import com.main.java.serviceImpl.EmployeeInfoServiceImpl;
+import com.main.java.service.employeeInfo.EmployeeInfoServiceImpl;
 
 
 @RestController

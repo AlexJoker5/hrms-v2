@@ -1,4 +1,4 @@
-package com.main.java.service;
+package com.main.java.service.account;
 
 import java.util.Optional;
 import java.util.UUID;

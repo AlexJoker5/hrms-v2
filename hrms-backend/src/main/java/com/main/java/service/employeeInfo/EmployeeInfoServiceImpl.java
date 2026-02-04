@@ -1,4 +1,4 @@
-package com.main.java.serviceImpl;
+package com.main.java.service.employeeInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,7 +11,6 @@ import com.main.java.entity.Account;
 import com.main.java.entity.EmployeeInfo;
 import com.main.java.repository.AccountRepo;
 import com.main.java.repository.EmployeeInfoRepo;
-import com.main.java.service.EmployeeInfoService;
 
 @Service
 public class EmployeeInfoServiceImpl implements EmployeeInfoService{

@@ -1,4 +1,4 @@
-package com.main.java.serviceImpl;
+package com.main.java.service.account;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.main.java.entity.Account;
 import com.main.java.repository.AccountRepo;
-import com.main.java.service.AccountService;
 
 @Service
 public class AccountServiceImpl implements AccountService {

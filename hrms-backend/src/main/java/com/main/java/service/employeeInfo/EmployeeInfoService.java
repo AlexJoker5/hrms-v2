@@ -1,4 +1,4 @@
-package com.main.java.service;
+package com.main.java.service.employeeInfo;
 
 import com.main.java.controller.empInfo.EmployeeInfoForm;
 
