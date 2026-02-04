@@ -32,4 +32,4 @@ jobs:
 
       - name: Build & Test
         working-directory: hrms-backend
-        run: mvn clean test
+        run: mvn clean test -Dspring.profiles.active=ci
