@@ -12,6 +12,28 @@ jobs:
   backend-build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: hrms
+          POSTGRES_USER: hrms_user
+          POSTGRES_PASSWORD: hrms_pass
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U hrms_user"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/hrms
+      SPRING_DATASOURCE_USERNAME: hrms_user
+      SPRING_DATASOURCE_PASSWORD: hrms_pass
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_PROFILES_ACTIVE: ci
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,4 +54,4 @@ jobs:
 
       - name: Build & Test
         working-directory: hrms-backend
-        run: mvn clean test -Dspring.profiles.active=ci
+        run: mvn clean test
