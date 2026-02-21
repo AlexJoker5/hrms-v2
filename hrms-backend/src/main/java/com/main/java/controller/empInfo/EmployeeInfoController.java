@@ -4,7 +4,9 @@ import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +31,14 @@ public class EmployeeInfoController {
 	@Autowired
 	private EmployeeInfoServiceImpl empInfoServiceImpl;
 	
+	@GetMapping("/register")
+	public String getRegisterForm() {
+		return "Register Form";
+	}
+	
 	@PostMapping("/register")
-	public String registerEmployeeInfo(@RequestBody EmployeeInfoForm empInfo) {
-		
+	public ResponseEntity<String> registerEmployeeInfo(@RequestBody EmployeeInfoForm empInfo) {
+	    System.out.println("Register endpoint hit!");
 		if(empInfo.getEmpId() != null && accountRepo.findByEmpId(empInfo.getEmpId()).isPresent()) {
 			throw new AlreadyExistsException(messageSource.getMessage(
 					"employee_already_exists", 
@@ -46,7 +53,7 @@ public class EmployeeInfoController {
 		}
 		
 		
-		return "";
+		return ResponseEntity.ok("Employee created successfully");
 	}
 
 }

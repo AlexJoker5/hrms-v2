@@ -29,7 +29,7 @@ public class EmployeeInfo extends BaseEntity{
 	 * Employee Code (E.g. EMP001) 
 	 * It's used in employee's card
 	 */
-	@Column(name = "emp_code")
+	@Column(name = "emp_code", unique = true)
 	private String employeeCode;
 	
 	/*
