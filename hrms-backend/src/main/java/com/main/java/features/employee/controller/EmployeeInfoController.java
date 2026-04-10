@@ -1,7 +1,6 @@
-package com.main.java.controller.empInfo;
+package com.main.java.features.employee.controller;
 
-import java.util.Locale;
-
+import com.main.java.features.employee.dto.request.EmployeeInfoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.main.java.exceptions.AlreadyExistsException;
 import com.main.java.repository.AccountRepo;
-import com.main.java.service.employeeInfo.EmployeeInfoServiceImpl;
+import com.main.java.features.employee.service.impl.EmployeeInfoServiceImpl;
 
 
 @RestController
@@ -37,22 +35,14 @@ public class EmployeeInfoController {
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<String> registerEmployeeInfo(@RequestBody EmployeeInfoForm empInfo) {
+	public ResponseEntity<String> registerEmployeeInfo(@RequestBody EmployeeInfoRequest empInfo) {
 	    System.out.println("Register endpoint hit!");
-		if(empInfo.getEmpId() != null && accountRepo.findByEmpId(empInfo.getEmpId()).isPresent()) {
-			throw new AlreadyExistsException(messageSource.getMessage(
-					"employee_already_exists", 
-					new Object[] { empInfo.getEmpId() },
-					Locale.getDefault()));
-		}
 		
 		try {
-			empInfoServiceImpl.createEmployee(empInfo);
+			empInfoServiceImpl.create(empInfo);
 		} catch (Exception e) {
 			throw e;
 		}
-		
-		
 		return ResponseEntity.ok("Employee created successfully");
 	}
 

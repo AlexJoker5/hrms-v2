@@ -138,6 +138,10 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-#MACOS Default
+# MACOS
 /.metadata/
 .DS_Store
+**/.DS_Store
+
+# Jetbrains
+/.idea/

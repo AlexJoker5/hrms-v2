@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.main.java.entity.Account;
 
 @Repository
-public interface AccountRepo extends JpaRepository<Account, UUID>{
-	
-	Optional<Account> findByEmpId(UUID empId);
+public interface AccountRepo extends BaseRepository<Account>{
+
+    Account findByEmpId(UUID empId);
 
 }

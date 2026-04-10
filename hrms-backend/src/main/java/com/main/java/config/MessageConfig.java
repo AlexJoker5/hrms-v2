@@ -1,19 +1,19 @@
-package com.main.java.config;
-
-import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-
-@Configuration
-public class MessageConfig {
-	
-	@Bean
-	MessageSource messageSource() {
-		ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
-		source.setBasename("classpath:error-message");
-		source.setDefaultEncoding("UTF-8");
-		return source;
-	}
-
-}
+//package com.main.java.config;
+//
+//import org.springframework.context.MessageSource;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+//
+//@Configuration
+//public class MessageConfig {
+//
+//	@Bean
+//	MessageSource messageSource() {
+//		ReloadableResourceBundleMessageSource source = new ReloadableResourceBundleMessageSource();
+//		source.setBasename("classpath:error-message");
+//		source.setDefaultEncoding("UTF-8");
+//		return source;
+//	}
+//
+//}

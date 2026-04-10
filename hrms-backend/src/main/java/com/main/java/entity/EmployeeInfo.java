@@ -1,29 +1,16 @@
 package com.main.java.entity;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(name = "employee_info")
 @Getter
 @Setter
 public class EmployeeInfo extends BaseEntity{
-	
-	/*
-	 * Employee ID (E.g. 012345)
-	 * 6 digits Employee System ID
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "emp_id")
-	private UUID empId;
 	
 	/*
 	 * Employee Code (E.g. EMP001) 

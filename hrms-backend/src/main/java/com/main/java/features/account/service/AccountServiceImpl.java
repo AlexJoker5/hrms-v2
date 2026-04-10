@@ -1,4 +1,4 @@
-package com.main.java.service.account;
+package com.main.java.features.account.service;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Optional<Account> findByEmpId(UUID empId) {
+	public Account findByEmpId(UUID empId) {
 		return accountRepo.findByEmpId(empId);
 	}
 	

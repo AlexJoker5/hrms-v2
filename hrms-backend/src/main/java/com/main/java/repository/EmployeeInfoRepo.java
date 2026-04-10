@@ -7,7 +7,5 @@ import org.springframework.stereotype.Repository;
 
 import com.main.java.entity.EmployeeInfo;
 
-@Repository
-public interface EmployeeInfoRepo extends JpaRepository<EmployeeInfo, UUID>{
-
+public interface EmployeeInfoRepo extends BaseRepository<EmployeeInfo>{
 }

@@ -1,4 +1,4 @@
-package com.main.java.service.account;
+package com.main.java.features.account.service;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -9,6 +9,6 @@ public interface AccountService {
 
 	void createUser(Account account);
 	
-	Optional<Account> findByEmpId(UUID empId);
+	Account findByEmpId(UUID empId);
 
 }
