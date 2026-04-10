@@ -4,11 +4,11 @@ on:
   push:
     paths:
       - "hrms-backend/**"
-    branches: [ main, master, develop ]
+    branches: [ develop ]
   pull_request:
     paths:
       - "hrms-backend/**"
-    branches: [ main, master, develop ]
+    branches: [ develop ]
 
 jobs:
   backend-build:
