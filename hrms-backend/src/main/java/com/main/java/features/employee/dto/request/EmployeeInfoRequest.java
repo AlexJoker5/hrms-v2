@@ -10,11 +10,6 @@ import lombok.*;
 public class EmployeeInfoRequest {
 
 	/*
-	 * Employee ID
-	 */
-	private UUID empId;
-
-	/*
 	 * Employee Code (E.g. EMP001)
 	 * It's used in employee's card
 	 * 6 digits Employee System ID
@@ -30,7 +25,7 @@ public class EmployeeInfoRequest {
 	@Size(max = 15, message = "Status length must not be greater than 15")
 	private String status;
 
-	@NotEmpty(message = "Join Date must not be empty")
+	@NotNull(message = "Join Date must not be empty")
 	private LocalDateTime joinDate;
 	
 	private LocalDateTime resignDate;
@@ -44,6 +39,10 @@ public class EmployeeInfoRequest {
 	private String password;
 
 	@NotEmpty(message = "Role must not be empty")
+	@Pattern(
+			regexp = "^[0-9]{2}$",
+			message = "This role is invalid"
+	)
 	private String role;
 
 }

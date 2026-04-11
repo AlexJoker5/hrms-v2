@@ -51,7 +51,7 @@ public abstract class BaseServiceImpl<ENTITY extends BaseEntity, REQUEST, RESPON
     @Transactional
     public RESPONSE update(UUID id, REQUEST request) {
         ENTITY entity = findByIdOrThrow(id);
-        updateEntityFromRequest(entity, request);
+        updateEntityFromRequest(request, entity);
         ENTITY updatedEntity = repository.save(entity);
         return mapEntityToResponse(updatedEntity);
     }
@@ -72,7 +72,7 @@ public abstract class BaseServiceImpl<ENTITY extends BaseEntity, REQUEST, RESPON
 
     protected abstract RESPONSE mapEntityToResponse(ENTITY entity);
 
-    protected abstract void updateEntityFromRequest(ENTITY entity, REQUEST request);
+    protected abstract void updateEntityFromRequest(REQUEST request, ENTITY entity);
 
     private ENTITY findByIdOrThrow(UUID id) {
         return repository.findById(id)

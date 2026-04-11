@@ -1,6 +1,7 @@
 package com.main.java.features.employee.controller;
 
 import com.main.java.features.employee.dto.request.EmployeeInfoRequest;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.ResponseEntity;
@@ -35,9 +36,8 @@ public class EmployeeInfoController {
 	}
 	
 	@PostMapping("/register")
-	public ResponseEntity<String> registerEmployeeInfo(@RequestBody EmployeeInfoRequest empInfo) {
+	public ResponseEntity<String> registerEmployeeInfo(@Valid @RequestBody EmployeeInfoRequest empInfo) {
 	    System.out.println("Register endpoint hit!");
-		
 		try {
 			empInfoServiceImpl.create(empInfo);
 		} catch (Exception e) {
